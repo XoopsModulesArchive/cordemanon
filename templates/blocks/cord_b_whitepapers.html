@@ -1,0 +1,5 @@
+<ul>
+    <{foreach item=whitepaper from=$block.whitepapers}>
+        <li><a href="<{$xoops_url}>/whitepapers/<{$whitepaper.whitepaperid}>/<{$whitepaper.whitepaper_title|escape:"url"}>"><{$whitepaper.whitepaper_title}></a> (<{$whitepaper.whitepaper_pages}> <{$smarty.const._CORD_MA_PAGES}>)</li>
+    <{/foreach}>
+</ul>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<{if $xoops_themecss}>
+    <?xml-stylesheet type="text/css" href="<{$xoops_themecss}>"?>
+<{/if}>
+<{if $theme_xslt}>
+    <?xml-stylesheet type="text/xsl" href="<{$theme_xslt}>"?>
+<{/if}>
+
+<rss version="2.0"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+>
+
+  <channel>
+    <title><![CDATA[<{$channel_title}>]]></title>
+    <link><{$channel_link}></link>
+    <description><![CDATA[<{$channel_desc}>]]></description>
+    <lastBuildDate><{$channel_lastbuild}></lastBuildDate>
+    <docs>http://backend.userland.com/rss/</docs>
+    <generator><{$channel_generator}></generator>
+    <category><{$channel_category}></category>
+    <managingEditor><{$channel_editor}></managingEditor>
+    <webMaster><{$channel_webmaster}></webMaster>
+    <language><{$channel_language}></language>
+
+    <{if $image_url != ""}>
+        <image>
+          <title><{$channel_title}></title>
+          <url><{$image_url}></url>
+          <link><{$channel_link}></link>
+          <width><{$image_width}></width>
+          <height><{$image_height}></height>
+        </image>
+    <{/if}>
+
+    <{foreach item=item from=$items}>
+
+        <item>
+          <title><![CDATA[<{$item.title}>]]></title>
+          <{if $item.author}>
+            <author><{$item.author}></author>
+          <{/if}>
+          <link><{$item.link}></link>
+          <description><![CDATA[<{$item.description}>]]></description>
+          <pubDate><{$item.pubdate}></pubDate>
+          <guid isPermaLink="<{if $link.is_permalink }>true<{else}>false<{/if}>"><{$item.guid}></guid>
+        
+          <{if $item.comments}>
+            <slash:comments><{$item.comments.count}></slash:comments>
+            <comments><{$item.comments.url}></comments>
+            <wfw:commentRss><{$item.comments.rss}></wfw:commentRss>
+          <{/if}>
+          <{if $item.dc_date}>
+            <dc:date><{$item.dc_date}></dc:date>
+          <{/if}>
+          <{if $item.encoded_content}>
+              <content:encoded><![CDATA[<{$item.encoded_content}>]]></content:encoded>
+          <{/if}>
+          <{if $item.enclosure}>
+              <enclosure url="<{$item.enclosure.url}>" length="<{$item.enclosure.length}>" type="<{$item.enclosure.type}>" />
+          <{/if}>
+        </item>
+
+    <{/foreach}>
+
+  </channel>
+</rss>

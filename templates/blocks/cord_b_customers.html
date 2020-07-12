@@ -1,0 +1,5 @@
+<ul>
+    <{foreach item=customer from=$block.customers}>
+        <li><a href="<{$xoops_url}>/whitepapers/<{$customer.customer_shortname}>"><{$customer.customer_name}></a></li>
+    <{/foreach}>
+</ul>

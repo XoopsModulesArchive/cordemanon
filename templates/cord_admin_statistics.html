@@ -1,0 +1,43 @@
+<h2><{$whitepaper.whitepaper_title}></h2>
+<{if $stats}>
+    <ul>
+        <{foreach item=stat from=$stats}>
+            <li>
+                <a href="statistics.php?whitepaperid=<{$whitepaper.whitepaperid}>&amp;m=<{$stat.month}>&amp;y=<{$stat.year}>">
+                    <{$stat.month}>/<{$stat.year}> ==&gt; <{$stat.count}>
+                </a>
+            </li>
+        <{/foreach}>
+    </ul>
+<{/if}>
+
+<table>
+    <tr>
+        <th><{$smarty.const._CORD_AM_STAT_USER}></th>
+        <th><{$smarty.const._CORD_AM_STAT_TIME}></th>
+        <th><{$smarty.const._CORD_AM_STAT_IP}></th>
+        <th><{$smarty.const._CORD_AM_STAT_NAME}></th>
+        <th><{$smarty.const._CORD_AM_STAT_ADDRESS}></th>
+        <th><{$smarty.const._CORD_AM_STAT_POSTAL}></th>
+        <th><{$smarty.const._CORD_AM_STAT_CITY}></th>
+        <th><{$smarty.const._CORD_AM_STAT_PHONE}></th>
+        <th><{$smarty.const._CORD_AM_STAT_EMAIL}></th>
+    </tr>
+    <{foreach item=hit from=$hits}>
+        <tr>
+            <td><a href="<{$xoops_url}>/userinfo.php?uid=<{$hit.userid}>"><{$users[$hit.userid].uname|default:$anonymous}></a></td>
+            <td><{$hit.hit_time|date_format:"R"}></td>
+            <td><{$hit.ip}></td>
+            <td><{$hit.hit_name}></td>
+            <td><{$hit.hit_address}></td>
+            <td><{$hit.hit_postal}></td>
+            <td><{$hit.hit_city}></td>
+            <td><{$hit.hit_phone}></td>
+            <td><{$hit.hit_email}></td>
+        </tr>
+    <{/foreach}>
+</table>
+
+<{if $pagenav}>
+    <div><{$pagenav}></div>
+<{/if}>

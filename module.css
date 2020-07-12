@@ -1,0 +1,81 @@
+#center {
+  text-align:left;
+}
+.cord-index-cat {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  float: left;
+  width: 48%;
+}
+.cord-index-cat-title {
+  font-weight: bold;
+  font-size: 120%;
+  color: #000000;
+}
+
+
+.cord-cat-title {
+  font-weight: bold;
+  font-size: 120%;
+  color: #000000;
+}
+.cord-cat-showing {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.cord-list-paper {
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #666666;
+}
+.cord-list-paper-title {
+  font-weight: bold;
+  color: #000000;
+  display: block;
+}
+.cord-list-paper-customer {
+  float: right;
+  clear: both;
+  padding: 10px;
+}
+
+.cord-paper-items {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  clear: both;
+}
+.cord-paper-extended {
+  float: right;
+  width: 30%;
+  padding-left: 10px;
+}
+.cord-paper-basic {
+  float: left;
+  width: 65%;
+}
+.cord-paper-title {
+  font-weight: bold;
+  color: #000000;
+}
+.cord-paper-image {
+  float: right;
+  clear: both;
+  padding: 10px;
+}
+
+.display-block {
+  display: block;
+}
+
+.cord-paper-otherpapers {
+  padding: 10px 0px 10px 0px;
+  clear: both;
+  border-top: 1px dotted #666666;
+}
+
+.cusix-link {
+  padding: 20px 10px 10px 10px;
+  clear: both;
+  border-top: 1px dotted #666666;
+}

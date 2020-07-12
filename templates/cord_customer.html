@@ -1,0 +1,12 @@
+<h1><{$smarty.const._CORD_MA_WHITEPAPERS}></h1>
+<h2><{$customer.customer_name}></h2>
+<div class="cord-cust-desc">
+	<{$customer.customer_desc}>
+</div>
+
+<{if $whitepapers}>
+	<{include file="db:cord_whitepaperlist.html}>
+<{/if}>
+
+<{* It is perfectly alright to remove this link - you may keep it, of course *}>
+<div class="cusix-link"><a href="http://www.cusix.dk" title="Cusix Software">Cordemanon by Cusix Software</a></div>

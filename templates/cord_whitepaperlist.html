@@ -1,0 +1,27 @@
+<{foreach item=whitepaper from=$whitepapers}>
+    <div class="cord-list-paper">
+        <a href="<{$xoops_url}>/whitepapers/<{$whitepaper.whitepaperid}>/<{$whitepaper.whitepaper_title|escape:"url"}>">
+			<span class="cord-list-paper-title">
+			    <img src="<{$xoops_url}>/modules/cordemanon/images/dokument.png" alt="" />&nbsp;
+			    <{$whitepaper.whitepaper_title}>
+			</span>
+        </a>
+        <{if $customers[$whitepaper.customerid] }>
+            <div class="cord-list-paper-customer">
+                <a href="<{$xoops_url}>/whitepapers/<{$customers[$whitepaper.customerid].customer_shortname}>" title="<{$customers[$whitepaper.customerid].customer_name}>">
+                    <{if $customers[$whitepaper.customerid].customer_image != "" }>
+                        <img src="<{$customers[$whitepaper.customerid].customer_image}>" alt="<{$customers[$whitepaper.customerid].customer_name}>" />
+                    <{else}>
+                        <{$customers[$whitepaper.customerid].customer_name}>
+                    <{/if}>
+                </a>
+            </div>
+        <{/if}>
+        <a href="<{$xoops_url}>/whitepapers/<{$whitepaper.whitepaperid}>/<{$whitepaper.whitepaper_title|escape:"url"}>">
+			<span class="cord-list-paper-desc"><{$whitepaper.whitepaper_shortdesc}></span>
+		</a>
+		
+        
+        <br style="clear: both;" />
+    </div>
+<{/foreach}>

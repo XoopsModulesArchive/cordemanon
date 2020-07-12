@@ -1,0 +1,21 @@
+<{if $errors}>
+    <div class="errorMsg">
+        <{foreach item=error from=$errors}>
+            <div><{$error}></div>
+        <{/foreach}>
+    </div>
+<{/if}>
+
+<form action="<{$downloadform.action}>" method="<{$downloadform.method}>" id="<{$downloadform.name}>">
+    <table>
+        <{foreach item=element from=$downloadform.elements}>
+            <tr>
+                <td class="head"><{$element.caption}></td>
+                <td class="<{cycle values='odd,even'}>"><{$element.body}></td>
+            </tr>
+        <{/foreach}>
+    </table>
+</form>
+
+<{* It is perfectly alright to remove this link - you may keep it, of course *}>
+<div class="cusix-link"><a href="http://www.cusix.dk" title="Cusix Software">Cordemanon by Cusix Software</a></div>

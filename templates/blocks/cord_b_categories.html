@@ -1,0 +1,5 @@
+<ul>
+    <{foreach item=category from=$block.categories}>
+        <li><a href="<{$xoops_url}>/whitepapers/<{$category.category_shortname}>"><{$category.category_name}></a></li>
+    <{/foreach}>
+</ul>

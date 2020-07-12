@@ -1,0 +1,19 @@
+<h1><{$smarty.const._CORD_MA_WHITEPAPERS}></h1>
+<{$description_text}>
+<{foreach item=category from=$categories}>
+    <div class="cord-index-cat">
+        <a href="<{$xoops_url}>/whitepapers/<{$category.category_shortname}>">
+            <span class="cord-index-cat-title"><{$category.category_name}></span>
+        </a>
+        <{if $category.subcats}>
+            <div class="cord-subcat">
+                <{foreach item=subcat from=$category.subcats name=subcatloop}>
+                    <a href="<{$xoops_url}>/whitepapers/<{$subcat.category_shortname}>"><{$subcat.category_name}></a><{if !$smarty.foreach.subcatloop.last}>,&nbsp;<{/if}>
+                <{/foreach}>
+            </div>
+        <{/if}>
+    </div>
+<{/foreach}>
+
+<{* It is perfectly alright to remove this link - you may keep it, of course *}>
+<div class="cusix-link"><a href="http://www.cusix.dk" title="Cusix Software">Cordemanon by Cusix Software</a></div>

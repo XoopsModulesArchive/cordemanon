@@ -1,0 +1,9 @@
+RewriteRule ^whitepapers(/)?$ modules/cordemanon/index.php [L]
+
+RewriteRule ^whitepapers/([0-9]+)/download(/)?$ modules/cordemanon/download.php?whitepaperid=$1 [L]
+RewriteRule ^whitepapers/([0-9]+)(/)? modules/cordemanon/whitepaper.php?whitepaperid=$1 [L]
+
+RewriteRule ^whitepapers/([-a-zA-Z\_\.0-9]+)(/)?$ modules/cordemanon/category.php?name=$1 [QSA,L]
+
+RewriteRule ^rss/whitepapers/([-a-zA-Z\_\.0-9]+)(/)?$ modules/cordemanon/rss.php?name=$1 [L]
+RewriteRule ^rss/whitepapers(/)?$ modules/cordemanon/rss.php?name=all [L]

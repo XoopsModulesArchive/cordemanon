@@ -1,0 +1,33 @@
+<a href="<{$xoops_url}>/modules/cordemanon/admin/customer.php?op=new"><{$smarty.const._CORD_AM_ADDCUSTOMER}></a>
+<table>
+    <tr>
+        <th><{$smarty.const._CORD_AM_CUSTOMER}></th>
+        <th><{$smarty.const._CORD_AM_CUSTOMERSHORTNAME}></th>
+        <th><{$smarty.const._CORD_AM_CUSTOMEREMAIL}></th>
+        <th><{$smarty.const._CORD_AM_CUSTOMERIMAGE}></th>
+        <th><{$smarty.const._CORD_AM_WHITEPAPER}></th>
+        <th></th>
+    </tr>
+    <{foreach item=customer from=$objects}>
+        <tr class="<{cycle values='odd,even'}>">
+            <td>
+                <a href="<{$xoops_url}>/modules/cordemanon/admin/customer.php?op=edit&amp;id=<{$customer.customerid}>">
+                    <{$customer.customer_name}>
+                </a>
+            </td>
+            <td><{$customer.customer_shortname}></td>
+            <td><{$customer.customer_email}></td>
+            <td>
+                <{if $customer.customer_image != "" }>
+                    <img src="<{$customer.customer_image}>" alt="<{$customer.customer_name}>" />
+                <{/if}>
+            </td>
+            <td><{$paper_counts[$customer.customerid]|default:0}></td>
+            <td>
+                <a href="<{$xoops_url}>/modules/cordemanon/admin/customer.php?op=delete&amp;id=<{$customer.customerid}>">
+                    <{$smarty.const._DELETE}>
+                </a>
+            </td>
+        </tr>
+    <{/foreach}>
+</table>

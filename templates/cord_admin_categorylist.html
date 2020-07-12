@@ -1,0 +1,40 @@
+<h1><{$smarty.const._CORD_AM_CATEGORIES}></h1>
+
+<div><a href="<{$xoops_url}>/modules/cordemanon/admin/category.php?op=new"><{$smarty.const._CORD_AM_ADDCATEGORY}></a></div>
+<br />
+<a href="javascript:categoryTree.openAll();"><{$smarty.const._CORD_AM_OPEN_ALL}></a> | <a href="javascript:categoryTree.closeAll();"><{$smarty.const._CORD_AM_CLOSE_ALL}></a>
+
+<script type="text/javascript" src="<{$xoops_url}>/modules/cordemanon/include/dtree.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/modules/cordemanon/include/dtree.css">
+
+<script type="text/javascript">
+var categoryTree = new dTree('categoryTree');
+var categoryTree_images = '<{$xoops_url}>/modules/cordemanon/include/dtree_img/'
+categoryTree.icon = {
+    root            : categoryTree_images + 'base.gif',
+    folder          : categoryTree_images + 'folder.gif',
+    folderOpen      : categoryTree_images + 'imgfolder.gif',
+    node            : categoryTree_images + 'imgfolder.gif',
+    empty           : categoryTree_images + 'empty.gif',
+    line            : categoryTree_images + 'line.gif',
+    join            : categoryTree_images + 'join.gif',
+    joinBottom      : categoryTree_images + 'joinbottom.gif',
+    plus            : categoryTree_images + 'plus.gif',
+    plusBottom      : categoryTree_images + 'plusbottom.gif',
+    minus           : categoryTree_images + 'minus.gif',
+    minusBottom     : categoryTree_images + 'minusbottom.gif',
+    nlPlus          : categoryTree_images + 'nolines_plus.gif',
+    nlMinus         : categoryTree_images + 'nolines_minus.gif'
+};
+categoryTree.config.useLines = true;
+categoryTree.config.useIcons = false;
+categoryTree.config.useCookies = true;
+categoryTree.config.closeSameLevel = false;
+categoryTree.add(0, -1, "", '');
+
+<{foreach item=category from=$categories}>
+    categoryTree.add(<{$category.categoryid}>, <{$category.category_parent}>, '<{$category.category_name}> <img src="../images/list.gif">', 'category.php?id=<{$category.categoryid}>');
+<{/foreach}>
+
+document.write(categoryTree);
+</script>

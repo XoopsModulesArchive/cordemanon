@@ -1,0 +1,65 @@
+<h1><{$smarty.const._CORD_MA_WHITEPAPERS}></h1>
+<h2><{$whitepaper.whitepaper_title}></h2>
+<div class="cord-paper-description">
+    <{if $customer.customer_image != ""}>
+        <span class="cord-paper-image">
+            <img src="<{$customer.customer_image}>" alt="<{$customer.customer_name}>" />
+        </span>
+    <{else}>
+        <div class="cord-list-paper-customer">
+            <span class="cord-paper-customer-name">
+                <a href="<{$xoops_url}>/whitepapers/<{$customer.customer_shortname}>"><{$customer.customer_name}></a>
+            </span>
+        </div>
+    <{/if}>
+    <{$whitepaper.whitepaper_desc}>
+</div>
+
+<div class="cord-paper-items">
+    <div class="cord-paper-extended">
+        <a href="<{$xoops_url}>/whitepapers/<{$whitepaper.whitepaperid}>/download" title="<{$smarty.const._CORD_MA_DOWNLOAD}> <{$whitepaper.whitepaper_title}>">
+            <span class="cord-paper-title display-block"><{$smarty.const._CORD_MA_DOWNLOAD}></span>
+            <span class="cord-paper-text">PDF, <{$whitepaper.filesize}> KB</span>
+        </a>
+    </div>
+    <div class="cord-paper-basic">
+        <div class="cord-paper-basic-item">
+            <a href="<{$xoops_url}>/whitepapers/<{$customer.customer_shortname}>" title="<{$customer.customer_name}>">
+                <span class="cord-paper-title"><{$smarty.const._CORD_MA_COMPANY}>:</span>&nbsp;
+                <span class="cord-paper-text"><{$customer.customer_name}></span>
+            </a>
+        </div>
+        <div class="cord-paper-basic-item">
+            <span class="cord-paper-title"><{$smarty.const._CORD_MA_LANGUAGE}>:</span>&nbsp;
+            <span class="cord-paper-text"><{$whitepaper.whitepaper_language}></span>
+        </div>
+        <div class="cord-paper-basic-item">
+            <span class="cord-paper-title"><{$smarty.const._CORD_MA_FORMAT}>:</span>&nbsp;
+            <span class="cord-paper-text">PDF</span>
+        </div>
+        <div class="cord-paper-basic-item">
+            <span class="cord-paper-title"><{$smarty.const._CORD_MA_ACCESSLEVEL}>:</span>&nbsp;
+            <span class="cord-paper-text"><{$whitepaper.access_level}></span>
+        </div>
+        <div class="cord-paper-basic-item">
+            <span class="cord-paper-title"><{$smarty.const._CORD_MA_PAGENUMBERS}>:</span>&nbsp;
+            <span class="cord-paper-text"><{$whitepaper.whitepaper_pages}> <{if $whitepaper.whitepaper_pages > 1}><{$smarty.const._CORD_MA_PAGES}><{else}><{$smarty.const._CORD_MA_PAGE}><{/if}></span>
+        </div>
+        <div class="cord-paper-basic-item">
+            <span class="cord-paper-title"><{$smarty.const._CORD_MA_DATE}>:</span>&nbsp;
+            <span class="cord-paper-text"><{$whitepaper.whitepaper_date|date_format:"%e-%m-%Y"}></span>
+        </div>
+    </div>
+    <br style="clear: both;" />
+</div>
+
+<{if $otherpapers}>
+    <div class="cord-paper-otherpapers">
+        <h3><{$smarty.const._CORD_MA_PWDTADT}></h3>
+        <{include file="db:cord_whitepaperlist.html whitepapers=$otherpapers}>
+    </div>
+    <br style="clear: both;" />
+<{/if}>
+
+<{* It is perfectly alright to remove this link - you may keep it, of course *}>
+<div class="cusix-link"><a href="http://www.cusix.dk" title="Cusix Software">Cordemanon by Cusix Software</a></div>

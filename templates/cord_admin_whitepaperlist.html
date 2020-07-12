@@ -1,0 +1,47 @@
+<fieldset>
+    <legend><{$filterform.title}></legend>
+    <form action="<{$filterform.action}>" method="<{$filterform.method}>" id="<{$filterform.name}>">
+        <{foreach item=element from=$filterform.elements}>
+            <{$element.caption}>&nbsp;<{$element.body}>
+        <{/foreach}>
+    </form>
+</fieldset>
+<p>
+<a href="<{$xoops_url}>/modules/cordemanon/admin/whitepaper.php?op=new"><{$smarty.const._CORD_AM_ADDWHITEPAPER}></a>
+</p>
+<table>
+    <tr>
+        <th><{$smarty.const._CORD_AM_WHITEPAPERTITLE}></th>
+        <th><{$smarty.const._CORD_AM_WHITEPAPERACTIVE}></th>
+        <th><{$smarty.const._CORD_AM_WHITEPAPERPUBDATE}></th>
+        <th><{$smarty.const._CORD_AM_WHITEPAPEREXPDATE}></th>
+        <th><{$smarty.const._CORD_AM_WHITEPAPERLEVEL}></th>
+        <th><{$smarty.const._CORD_AM_CUSTOMER}></th>
+        <th><{$smarty.const._CORD_AM_WHITEPAPERREADS}></th>
+        <th><{$smarty.const._CORD_AM_WHITEPAPERHITS}></th>
+        <th></th>
+    </tr>
+    <{foreach item=whitepaper from=$objects}>
+        <tr class="<{cycle values='odd,even'}>">
+            <td>
+                <a href="<{$xoops_url}>/modules/cordemanon/admin/whitepaper.php?op=edit&amp;id=<{$whitepaper.whitepaperid}>">
+                    <{$whitepaper.whitepaper_title}>
+                </a>
+            </td>
+            <td>
+                <img src="../images/button_<{if $whitepaper.whitepaper_active}>ok<{else}>cancel<{/if}>.png" alt="<{if $whitepaper.whitepaper_active}><{$smarty.const._YES}><{else}><{$smarty.const._NO}><{/if}>"/>
+            </td>
+            <td><{$whitepaper.whitepaper_publishdate|date_format:"%e-%m-%Y"}></td>
+            <td><{$whitepaper.whitepaper_expiredate|date_format:"%e-%m-%Y"}></td>
+            <td><{if $whitepaper.whitepaper_level}><{$smarty.const._CORD_AM_WHITEPAPERLOGIN}><{else}><{$smarty.const._CORD_AM_WHITEPAPERCONTACT}><{/if}></td>
+            <td><{$customers[$whitepaper.customerid].customer_name}></td>
+            <td><{$whitepaper.whitepaper_reads}></td>
+            <td><a href="statistics.php?whitepaperid=<{$whitepaper.whitepaperid}>"><{$whitepaper.whitepaper_hits}></a></td>
+            <td>
+                <a href="<{$xoops_url}>/modules/cordemanon/admin/whitepaper.php?op=delete&amp;id=<{$whitepaper.whitepaperid}>">
+                    <{$smarty.const._DELETE}>
+                </a>
+            </td>
+        </tr>
+    <{/foreach}>
+</table>

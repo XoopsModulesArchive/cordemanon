@@ -1,0 +1,31 @@
+<h1><{$smarty.const._CORD_MA_WHITEPAPERS}></h1>
+<div class="cord-cat-details">
+    <h2><{$category.category_name}></h2>
+    <span class="cord-cat-desc"><{$category.category_desc}></span>
+</div>
+
+<{if $subcategories}>
+  <{$smarty.const._CORD_MA_SUBCATEGORIES}>:
+  <{foreach item=category from=$subcategories name=subcatloop}>
+    <span class="cord-cat">
+        <a href="<{$xoops_url}>/whitepapers/<{$category.category_shortname}>"><{$category.category_name}></a><{if !$smarty.foreach.subcatloop.last}>,&nbsp;<{/if}>
+    </span>
+  <{/foreach}>
+<{/if}>
+
+<div class="cord-cat-showing">
+    <{$showing}> <{if $pagenav}><{$pagenav}><{/if}>
+</div>
+
+<{if $whitepapers}>
+    <{include file="db:cord_whitepaperlist.html}>
+<{else}>
+    Ingen whitepapers
+<{/if}>
+
+<{if $pagenav}>
+    <{$pagenav}>
+<{/if}>
+
+<{* It is perfectly alright to remove this link - you may keep it, of course *}>
+<div class="cusix-link"><a href="http://www.cusix.dk" title="Cusix Software">Cordemanon by Cusix Software</a></div>
